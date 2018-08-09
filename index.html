@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clicker Game</title>
+    <link rel="stylesheet" href="styles/index.css">
+</head>
+
+<body>
+    <main class="container">
+        <div id="main-clicks">
+            0
+        </div>
+        <div id="main-value">
+            0
+        </div>
+        <section class="container--button" data-group="main">
+            <button id="main-clicker">
+                Click Me!
+            </button>
+        </section>
+        <section class="container--button" data-group="autoclickers">
+            <button data-group="autoclickers">
+                Buy Autoclicker
+            </button>
+            <span data-group="autoclickers">0</span>
+            <div data-group="autoclickers">
+                5
+            </div>
+        </section>
+        <section class="container--button" data-group="click-power">
+            <button data-group="click-power">
+                Increment Click Power
+            </button>
+            <span data-group="click-power">1</span>
+            <div data-group="click-power">
+                100
+            </div>
+        </section>
+    </main>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>
