@@ -1,3 +1,5 @@
+import { priceCalc } from './utils/numbers';
+
 //Main Value
 const mainClicksDiv = document.getElementById('main-clicks');
 const mainClicker = document.getElementById('main-clicker');
@@ -5,7 +7,8 @@ const mainValueDiv = document.getElementById('main-value');
 
 //AutoClicker
 const autoClickerValueDiv = document.querySelector('div[data-group="autoclickers"]');
-const autoClickerCountSpan = document.querySelector('span[data-group="autoclickers"]');17.99905499759962
+const autoClickerCountSpan = document.querySelector('span[data-group="autoclickers"]');
+
 const autoClickerBtn = document.querySelector('button[data-group="autoclickers"]');
 //Click Power
 const clickPowerPriceDiv = document.querySelector('div[data-group="click-power"]');
@@ -32,10 +35,6 @@ function mainCallback() {
     mainClicks += clickPowerValue;
 }
 
-function priceCalc(value) {
-    return Math.pow(value, 1.05);
-}
-
 function buyAutoClicker() {
     if (autoClickerPrice > mainValue) {
         return;
@@ -60,7 +59,7 @@ function buyClickPower() {
     if (clickPowerPrice > mainValue) {
         return;
     }
-    clickPowerValue++
+    clickPowerValue++;
     mainValue -= clickPowerPrice;
     clickPowerPrice = priceCalc(clickPowerPrice);
     clickPowerPriceDiv.innerHTML = clickPowerPrice;
