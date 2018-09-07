@@ -4,11 +4,11 @@
   "description": "A live stream coded clicker game",
   "main": "src/index.js",
   "scripts": {
-    "build:js": "webpack --env.NODE_ENV=development",
-    "build:js:production": "webpack --env.NODE_ENV=production",
-    "test": "ava --verbose",
-    "test:coverage": "nyc ava --verbose",
-    "watch": "webpack --watch --env.NODE_ENV=development"
+    "build:js": "webpack --config config/webpack.config.dev.js",
+    "build:js:production": "webpack --config config/webpack.config.prod.js",
+    "test": "jest",
+    "test:coverage": "",
+    "dev": "webpack-serve --config config/webpack.config.dev.js"
   },
   "repository": {
     "type": "git",
@@ -20,26 +20,36 @@
     "url": "https://github.com/jgilless/clickers/issues"
   },
   "homepage": "https://github.com/jgilless/clickers#readme",
+  "dependencies": {
+    "object-assign": "^4.1.1"
+  },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-loader": "^8.0.2",
     "eslint": "^5.3.0",
     "eslint-loader": "^2.1.0",
     "eslint-plugin-prettier": "^2.6.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^23.5.0",
     "nyc": "^12.0.2",
     "path": "^0.12.7",
     "prettier-eslint": "^8.8.2",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0"
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-serve": "^2.0.2"
   },
-  "ava": {
-    "require": [
-      "babel-core/register"
-    ],
-    "concurrency": 5,
-    "babel": "inherit"
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleFileExtensions": [
+      "js"
+    ]
   }
 }
